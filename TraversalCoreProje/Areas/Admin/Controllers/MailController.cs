@@ -21,7 +21,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
         {
             MimeMessage mimeMessage = new MimeMessage();
 
-            MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "laravel513@gmail.com");
+            MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "yourmailadres");
 
             mimeMessage.From.Add(mailboxAddressFrom);
 
@@ -36,8 +36,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com", 587, false);
-            // "yourmailadres" , "yourmailapppassword"
-            client.Authenticate("laravel513@gmail.com", "oaow vigt qanv onwb");
+            client.Authenticate("yourmailadres", "yourmailapppassword");
             client.Send(mimeMessage);
             client.Disconnect(true);
             return View();
