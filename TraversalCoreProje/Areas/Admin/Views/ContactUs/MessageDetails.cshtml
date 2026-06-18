@@ -1,0 +1,50 @@
+﻿@model ContactUs
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">Mesaj Detayı</h4>
+
+        <div class="card mb-4">
+            <h5 class="card-header">@Model.Subject</h5>
+            <div class="card-body">
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>Gönderen:</strong> @Model.Name
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Mail:</strong> @Model.Mail
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>Tarih:</strong> @Model.MessageDate.ToString("dd.MMM.yyyy HH:mm")
+                    </div>
+                    
+                </div>
+
+                <hr />
+
+                <div class="mb-3">
+                    <strong>Mesaj:</strong>
+                    <p class="mt-2">@Model.MessageBody</p>
+                </div>
+
+                <a asp-area="Admin" asp-controller="ContactUs" asp-action="Index" class="btn btn-outline-secondary">Geri Dön</a>
+                <a href="/Admin/ContactUs/MakePassive/@Model.ContactUsID"
+                   class="btn btn-outline-warning"
+                   onclick="return confirm('Bu mesajı silmek istediğinize emin misiniz? Mesaj silinen mesajlar sayfasına kaydedilecek');">
+                    Sil
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</div>

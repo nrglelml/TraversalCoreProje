@@ -1,0 +1,62 @@
+﻿@model List<Guide>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<style>
+    img {
+        border-radius: 50%;
+    }
+</style>
+
+<h1>Rehber Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Görsel</th>
+        <th>Ad Soyad</th>
+        <th>Açıklama</th>
+        <th>Durum</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.Image))
+                {
+                    <img src="~/guideImages/@item.Image" height="50" width="50" style="object-fit:cover;" />
+                }
+                else
+                {
+                    <img src="@item.Image" height="50" width="50" style="object-fit:cover;" />
+                    @* <div class="d-flex align-items-center justify-content-center rounded bg-secondary text-white" style="width:50px; height:50px; font-size:10px;">
+                        Resim Yok
+                    </div> *@
+                }
+            </td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+
+
+            @{
+                if (item.GuideStatus == true)
+                {
+                    <td><a href="/Admin/Guide/MakePassive/@item.GuideID" class="btn btn-outline-warning">Pasif Yap</a></td>
+                }
+                else
+                {
+                    <td><a href="/Admin/Guide/MakeActive/@item.GuideID" class="btn btn-outline-info">Aktif Yap</a></td>
+                }
+            }
+
+            <td><a href="/Admin/Guide/EditGuide/@item.GuideID" class="btn btn-outline-success">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/Guide/AddGuide/" class="btn btn-outline-primary">Yeni Rehber Girişi</a>

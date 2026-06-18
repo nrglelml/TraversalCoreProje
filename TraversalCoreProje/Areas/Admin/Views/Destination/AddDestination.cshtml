@@ -1,0 +1,95 @@
+﻿@model DestinationAddDTO
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <h5 class="card-header">Yeni Gezi Rotası Ekle</h5>
+
+                    <form asp-area="Admin" asp-controller="Destination" asp-action="AddDestination" method="post" enctype="multipart/form-data">
+
+                        <div class="card-body">
+                            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                <div class="button-wrapper">
+                                    <label for="upload1" class="form-label">Gezi Görseli (DestinationImage)</label>
+                                    <input type="file"
+                                           id="upload1"
+                                           name="DestinationImageFile"
+                                           class="form-control"
+                                           accept="image/png, image/jpeg" />
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start align-items-sm-center gap-4 mt-3">
+                                <div class="button-wrapper">
+                                    <label for="upload2" class="form-label">Kapak Görseli (CoverImage)</label>
+                                    <input type="file"
+                                           id="upload2"
+                                           name="CoverImageFile"
+                                           class="form-control"
+                                           accept="image/png, image/jpeg" />
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start align-items-sm-center gap-4 mt-3">
+                                <div class="button-wrapper">
+                                    <label for="upload3" class="form-label">İkincil Görsel (Image2)</label>
+                                    <input type="file"
+                                           id="upload3"
+                                           name="Image2File"
+                                           class="form-control"
+                                           accept="image/png, image/jpeg" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-0" />
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="destinationCity" class="form-label">Gezi Şehri</label>
+                                    <input class="form-control" type="text" id="destinationCity" name="DestinationCity" autofocus />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="destinationDayNight" class="form-label">Gezi Süresi</label>
+                                    <input class="form-control" type="text" id="destinationDayNight" name="DestinationDayNight" />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="destinationDescription" class="form-label">Gezi Açıklaması</label>
+                                    <input class="form-control" type="text" id="destinationDescription" name="DestinationDescription" />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="details1" class="form-label">Gezi Detayları 1</label>
+                                    <input class="form-control" type="text" id="details1" name="Details1" />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="details2" class="form-label">Gezi Detayları 2</label>
+                                    <input class="form-control" type="text" id="details2" name="Details2" />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="destinationPrice" class="form-label">Gezi Ücreti</label>
+                                    <input type="text" class="form-control" id="destinationPrice" name="DestinationPrice" />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label" for="destinationCapacity">Gezi Kapasitesi</label>
+                                    <input type="text" id="destinationCapacity" name="DestinationCapacity" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                                <button type="reset" class="btn btn-outline-secondary">İptal</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yorum Listesi</h1>
+@if (Model == null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Kullanıcı</th>
+            <th>Rota</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <h4>Herhangi bir yorum bulunmamaktadır.</h4>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Kullanıcı</th>
+            <th>Rota</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CommentID</td>
+                <td>@item.User</td>
+                <td>@item.Destination.DestinationCity</td>
+                <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                <td><a href="/Admin/Comment/DeleteComment/@item.CommentID" class="btn btn-outline-danger">Sil</a></td>
+            </tr>
+        }
+    </table>
+
+}
+

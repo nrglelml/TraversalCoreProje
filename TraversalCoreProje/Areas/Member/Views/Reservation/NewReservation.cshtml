@@ -1,0 +1,63 @@
+﻿@model Reservation
+@{
+    ViewData["Title"] = "NewReservation";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3">Yeni Rezervasyon Oluştur</h6>
+                    </div>
+                </div>
+                <div class="card-body px-4 pb-4">
+                    <form asp-action="NewReservation" asp-controller="Reservation" method="post">
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Rota Seçiniz</label>
+                                <select asp-for="DestinationID" class="form-control" asp-items="ViewBag.v">
+                                    <option value="">-- Rota Seçiniz --</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Kişi Sayısı</label>
+                                <input type="number" asp-for="PersonCount" class="form-control" min="1" placeholder="Kişi Sayısı" />
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Rezervasyon Tarihi</label>
+                                <input type="date" asp-for="ReservationDate" class="form-control" />
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <label class="form-label">Açıklama</label>
+                                <textarea asp-for="Description" class="form-control" rows="4" placeholder="Eklemek istediğiniz notlar..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-12 text-end">
+                                <button type="submit" class="btn bg-gradient-primary">Rezervasyon Oluştur</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        alert('Rezervasyonunuz başlangıçta onay bekliyor şeklinde alınacaktır. Rezervasyon onaylanma süreci için "Güncel Rezervasyonlarım" menüsünü takip etmeyi unutmayın.');
+    });
+</script>

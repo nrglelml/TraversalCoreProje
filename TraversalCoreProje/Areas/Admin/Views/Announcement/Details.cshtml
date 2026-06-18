@@ -1,0 +1,50 @@
+﻿@model AnnouncementListDto
+@{
+    ViewData["Title"] = "Duyuru Detayı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">Duyuru Detayı</h4>
+
+        <div class="card mb-4">
+            <h5 class="card-header">@Model.Title</h5>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <strong>Başlık:</strong>
+                    <p class="mt-1">@Model.Title</p>
+                </div>
+
+                <div class="mb-3">
+                    <strong>İçerik:</strong>
+                    <p class="mt-1">@Model.Content</p>
+                </div>
+                <div class="mb-3">
+                    <strong>Tarih:</strong>
+                    <p class="mt-1">@Model.Date.ToShortDateString()</p>
+                </div>
+
+                <hr />
+
+                <a asp-area="Admin" asp-controller="Announcement" asp-action="Index" class="btn btn-outline-secondary">
+                    Geri Dön
+                </a>
+
+                <a href="/Admin/Announcement/UpdateAnnouncement/@Model.AnnouncementID" class="btn btn-outline-success">
+                    Güncelle
+                </a>
+
+                <a href="/Admin/Announcement/DeleteAnnouncement/@Model.AnnouncementID"
+                   class="btn btn-outline-danger"
+                   onclick="return confirm('Bu duyuruyu kalıcı olarak silmek istediğinize emin misiniz?');">
+                    Sil
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</div>

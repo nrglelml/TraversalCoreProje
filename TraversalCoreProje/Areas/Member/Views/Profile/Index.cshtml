@@ -1,0 +1,41 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Profil Düzenleme Sayfası</h1>
+<br />
+<div class="text-center mb-4">
+    <img src="~/userImages/@Model.imageurl" alt="Profil Resmi"
+         style="width: 120px; height: 120px; object-fit: cover; object-position: center; border-radius: 50%; border: 2px solid #ddd;" />
+</div>
+<form method="post" enctype="multipart/form-data">
+    @Html.Label("Adınız")
+    <input type="text" asp-for="name" class="form-control" />
+    <br />
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="surname" class="form-control" />
+    <br />
+    @Html.Label("Mail Adresiniz")
+    <input type="text" asp-for="mail" class="form-control" />
+    <br />
+    @Html.Label("Telefon Numaranız")
+    <input type="text" asp-for="phonenumber" class="form-control" />
+    <br />
+    @Html.Label("Şifreniz")
+    <input type="text" asp-for="password" class="form-control" />
+    <br />
+    @Html.Label("Şifreniz Tekrar")
+    <input type="text" asp-for="confirmpassword" class="form-control" />
+    <br />
+   
+    <div class="form-group">
+        @Html.Label("Resim Seçin")
+        <input type="file" asp-for="Image" />
+    </div>
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+
+    
+</form>

@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+
+
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Traversal Admin Paneli</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/project_logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="~/sneat-1.0.0/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/sneat-1.0.0/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/sneat-1.0.0/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/sneat-1.0.0/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="~/sneat-1.0.0/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/sneat-1.0.0/assets/js/config.js"></script>
+</head>
+
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu -->
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="/Admin/Dashboard/Index" class="app-brand-link">
+                        <span class="app-brand-logo demo">
+                            <img src="~/project_logo.png" alt="Traversal Logo" width="32" height="32" style="object-fit:contain;" />
+                        </span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Admin Paneli</span>
+                    </a>
+
+                    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                    </a>
+                </div>
+
+                <div class="menu-inner-shadow"></div>
+
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="/Admin/Dashboard/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+                    <!-- Yorumlar -->
+                    <li class="menu-item">
+                        <a href="/Admin/Comment/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-message-square-detail"></i>
+                            <div data-i18n="Analytics">Yorumlar</div>
+                        </a>
+                    </li>
+                    <!-- Rotalar -->
+                    <li class="menu-item">
+                        <a href="/Admin/Destination/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-map-alt"></i>
+                            <div data-i18n="Analytics">Rotalar</div>
+                        </a>
+                    </li>
+                    <!-- Misafirler -->
+                    <li class="menu-item">
+                        <a href="/Admin/User/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-group"></i>
+                            <div data-i18n="Analytics">Misafirler</div>
+                        </a>
+                    </li>
+                    <!-- Mesajlar -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-envelope"></i>
+                            <div data-i18n="Analytics">Mesajlar</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="/Admin/ContactUs/Index" class="menu-link">
+                                    <div data-i18n="Analytics">Gelen Mesajlar</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/Admin/ContactUs/DeletedMessages" class="menu-link">
+                                    <div data-i18n="Analytics">Silinen Mesajlar</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Rehberlerimiz -->
+                    <li class="menu-item">
+                        <a href="/Admin/Guide/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-id-card"></i>
+                            <div data-i18n="Analytics">Rehberlerimiz</div>
+                        </a>
+                    </li>
+                    <!-- Öne Çıkanlar -->
+                    <li class="menu-item">
+                        <a href="/Admin/Feature/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-star"></i>
+                            <div data-i18n="Analytics">Öne Çıkanlar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/Admin/Feature/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Analytics">Öne Çıkanlar 2</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/Admin/Reference/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-message-square-dots"></i>
+                            <div data-i18n="Analytics">Referanslar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/Admin/About/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-info-circle"></i>
+                            <div data-i18n="Analytics">Alt Hakkında</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/Admin/Reservation/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar-check"></i>
+                            <div data-i18n="Analytics">Rezervasyonlar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/Admin/Mail/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-mail-send"></i>
+                            <div data-i18n="Analytics">Mail Gönder</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="/Admin/Excel/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-layer"></i> 
+                            <div data-i18n="Analytics">Raporlar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/Admin/Announcement/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-bell"></i>
+                            <div data-i18n="Analytics">Duyurular</div>
+                        </a>
+                    </li>
+                  @*   <li class="menu-item">
+                        <a href="/Admin/City/Index" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-layer"></i>
+                            <div data-i18n="Analytics">Şehir Listesi Ajax</div>
+                        </a>
+                    </li> *@
+                    <li class="menu-item">
+                        <a href="/Admin/Account/ChangePassword" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-lock-alt"></i>
+                            <div data-i18n="Analytics">Şifre İşlemleri</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a asp-area="" asp-controller="Login" asp-action="LogOut" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-log-out"></i>
+                            <div data-i18n="Analytics">Çıkış Yap</div>
+                        </a>
+                    </li>
+
+                </ul>
+            </aside>
+            <!-- / Menu -->
+            <!-- Layout container -->
+            <div class="layout-page">
+
+
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+
+                        @RenderBody()
+                    </div>
+            </div>
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    </div>
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="~/sneat-1.0.0/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/sneat-1.0.0/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/sneat-1.0.0/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/sneat-1.0.0/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="~/sneat-1.0.0/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <!-- Main JS -->
+    <script src="~/sneat-1.0.0/assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

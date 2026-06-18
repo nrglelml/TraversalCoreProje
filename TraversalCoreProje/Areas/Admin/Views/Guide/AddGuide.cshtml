@@ -1,0 +1,87 @@
+﻿@model GuideAddEditDTO
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">Yeni Rehber Ekle</h4>
+
+        <div class="card mb-4">
+            <h5 class="card-header">Rehber Bilgileri</h5>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <form asp-area="Admin" asp-controller="Guide" asp-action="AddGuide" method="post" enctype="multipart/form-data">
+
+                <div class="card-body">
+                    <div class="d-flex align-items-start align-items-sm-center gap-4">
+                        <div class="d-flex align-items-center justify-content-center rounded bg-secondary text-white" id="uploadedAvatar" style="width:100px; height:100px;">
+                            Resim Yok
+                        </div>
+                        <div class="button-wrapper">
+                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                <span class="d-none d-sm-block">Fotoğraf Yükle</span>
+                                <input type="file" id="upload" name="ImageFile" class="account-file-input" hidden accept="image/png, image/jpeg" />
+                            </label>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <hr class="my-0" />
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="name" class="form-label">Ad Soyad</label>
+                            <input class="form-control" type="text" id="name" asp-for="Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="twitterUrl" class="form-label">Twitter Url</label>
+                            <input class="form-control" type="text" id="twitterUrl" asp-for="TwitterUrl" />
+                            <span asp-validation-for="TwitterUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="instagramUrl" class="form-label">Instagram Url</label>
+                            <input class="form-control" type="text" id="instagramUrl" asp-for="InstagramUrl" />
+                            <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="description" class="form-label">Açıklama</label>
+                            <textarea class="form-control" id="description" rows="4" asp-for="Description"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                        <a asp-area="Admin" asp-controller="Guide" asp-action="Index" class="btn btn-outline-secondary">İptal</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+    <script>
+        document.getElementById('upload').addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            if (file) {
+                var container = document.getElementById('uploadedAvatar');
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    container.innerHTML = '<img src="' + event.target.result + '" class="rounded" width="100" height="100" style="object-fit:cover;" />';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>

@@ -1,0 +1,55 @@
+﻿@model List<ContactUs>
+@{
+    ViewData["Title"] = "DeletedMessages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Bize Ulaşın Silinen Mesajlar</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Gönderen</th>
+        <th>Konu</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <td>@item.Name</td>
+            <td>@item.Subject</td>
+            <td>@item.MessageDate.ToString("dd.MMM.yyyy")</td>
+            <td>
+                <a href="javascript:void(0);" class="btn btn-outline-warning delete-btn" data-id="@item.ContactUsID">
+                    Sil
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelectorAll('.delete-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            Swal.fire({
+                title: 'Eminmisiniz?',
+                text: "Bu mesaj kalıcı olarak silinecek! Silmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Evet, sil',
+                cancelButtonText: 'Vazgeç'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/Admin/ContactUs/Delete/' + id;
+                }
+            });
+        });
+    });
+</script>
