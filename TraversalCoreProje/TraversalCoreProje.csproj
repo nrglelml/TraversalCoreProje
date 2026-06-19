@@ -444,7 +444,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\destinationImages\" />
     <Folder Include="wwwroot\guideImages\" />
     <Folder Include="wwwroot\userImages\" />
