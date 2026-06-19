@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Otel Ara";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">Booking.com Otel Arama</h4>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-warning">@ViewBag.Message</div>
+        }
+
+        <div class="card">
+            <div class="card-body">
+                <form method="post" asp-area="Admin" asp-controller="BookingHotelSearch" asp-action="Index">
+                    <div class="mb-3">
+                        <label class="form-label">Şehir Adı</label>
+                        <input type="text" name="city" class="form-control" placeholder="Örn: Paris" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ara</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

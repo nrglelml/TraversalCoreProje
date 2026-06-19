@@ -1,0 +1,61 @@
+﻿@model BookingHotelSearchViewModel.Hotel[]
+@{
+    ViewData["Title"] = "Otel Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">Otel Listesi — @ViewBag.CityName</h4>
+
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Resim</th>
+                <th>Otel Adı</th>
+                <th>Fiyat</th>
+                <th>Değerlendirme</th>
+                <th>Detaylar</th>
+            </tr>
+            @if (Model == null || !Model.Any())
+            {
+                <tr>
+                    <td colspan="6" class="text-center">Otel bulunamadı.</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    count++;
+                    var prop = item.property;
+                    <tr>
+                        <td>@count</td>
+                        <td>
+                            @if (prop?.photoUrls != null && prop.photoUrls.Length > 0)
+                            {
+                                <img src="@prop.photoUrls[0]" width="80" height="60" style="object-fit:cover;" />
+                            }
+                        </td>
+                        <td>@prop?.name</td>
+                        <td>
+                            @if (prop?.priceBreakdown?.grossPrice != null)
+                            {
+                                @($"{prop.priceBreakdown.grossPrice.value} {prop.priceBreakdown.grossPrice.currency}")
+                            }
+                        </td>
+                        <td>
+                            @prop?.reviewScore (@prop?.reviewScoreWord) — @prop?.reviewCount yorum
+                        </td>
+                        <td>
+                            <a href="/Admin/BookingHotelSearch/HotelDetails/@item.hotel_id" class="btn btn-outline-dark">Detaylar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+    </div>
+</div>
