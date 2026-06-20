@@ -20,5 +20,6 @@ namespace EntityLayer.Concrete
         [AllowNull]
         public string InstagramUrl { get; set; }
         public bool GuideStatus { get; set; }
+        public List<Destination> Destinations { get; set; }
     }
 }

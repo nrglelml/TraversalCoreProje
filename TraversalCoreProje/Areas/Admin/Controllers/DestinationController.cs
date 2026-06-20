@@ -27,7 +27,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
         public IActionResult Index()
         {
 
-            var values = _destinationService.TGetList();
+            var values = _destinationService.TGetListWithGuide();
             return View(values);
         }
         public IActionResult Details(int id)

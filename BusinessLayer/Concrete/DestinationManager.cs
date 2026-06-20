@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,11 @@ namespace BusinessLayer.Concrete
         public List<Destination> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Destination> TGetListWithGuide()
+        {
+            return _destinationDal.GetListWithGuide();
         }
 
         public void TUpdate(Destination t)

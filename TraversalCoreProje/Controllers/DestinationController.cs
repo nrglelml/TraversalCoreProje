@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -9,19 +10,24 @@ namespace TraversalCoreProje.Controllers
     [AllowAnonymous]
     public class DestinationController : Controller
     {
-        DestinationManager dm = new DestinationManager(new EfDestinationDal());
+        private readonly IDestinationService _destinationService;
+
+        public DestinationController(IDestinationService destinationService)
+        {
+            _destinationService = destinationService;
+        }
         public IActionResult Index()
         {
-            var values = dm.TGetList();
+            var values = _destinationService.TGetListWithGuide();
             return View(values);
         }
         [HttpGet]
         public IActionResult DestinationDetails(int id)
         {
-            ViewBag.i= id;
-            var values=dm.TGetByID(id);
+            ViewBag.i = id;
+            var values = _destinationService.TGetListWithGuide().FirstOrDefault(x => x.DestinationID == id);
             return View(values);
         }
-      
+
     }
 }

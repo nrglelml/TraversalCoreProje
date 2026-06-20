@@ -1,0 +1,94 @@
+﻿@model EntityLayer.Concrete.Destination
+@{
+    ViewData["Title"] = "Rota Detayı";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                @if (!string.IsNullOrEmpty(Model.CoverImage))
+                {
+                    <img src="~/destinationImages/@Model.CoverImage"
+                         class="w-100 mb-3"
+                         style="height:350px; object-fit:cover; border-radius:8px;"
+                         alt="@Model.DestinationCity" />
+                }
+                <h4>@Model.DestinationCity</h4>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <strong>Süre:</strong> @Model.DestinationDayNight
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Kapasite:</strong> @Model.DestinationCapacity Kişi
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Fiyat:</strong> @Model.DestinationPrice ₺
+                    </div>
+                </div>
+                <p class="mb-4">@Model.DestinationDescription</p>
+                @if (!string.IsNullOrEmpty(Model.Details1))
+                {
+                    <h6 class="mt-4">Tur Programı - 1. Bölüm</h6>
+                    <p>@Model.Details1</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Details2))
+                {
+                    <h6 class="mt-4">Tur Programı - 2. Bölüm</h6>
+                    <p>@Model.Details2</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Image2))
+                {
+                    <div class="text-center my-4">
+                        <img src="~/destinationImages/@Model.Image2"
+                             class="img-fluid rounded"
+                             style="width:220px; height:220px; object-fit:cover;"
+                             alt="@Model.DestinationCity" />
+                    </div>
+                }
+                <hr class="my-4" />
+                @if (Model.GuideID != null && Model.Guide != null)
+                {
+                    <div class="d-flex align-items-center">
+                        <div style="width:60px; height:60px; border-radius:50%; overflow:hidden;" class="me-3 flex-shrink-0">
+                            @if (!string.IsNullOrEmpty(Model.Guide.Image))
+                            {
+                                <img src="~/guideImages/@Model.Guide.Image"
+                                     style="width:100%; height:100%; object-fit:cover; display:block;" />
+                            }
+                            else
+                            {
+                                <div class="bg-secondary text-white d-flex align-items-center justify-content-center"
+                                     style="width:100%; height:100%;">
+                                    @(Model.Guide.Name?.Substring(0, 1).ToUpper())
+                                </div>
+                            }
+                        </div>
+                        <div>
+                            <h6 class="mb-0">Oluşturan: @Model.Guide.Name</h6>
+                            <p class="text-sm text-secondary mb-0">@Model.Guide.Description</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex align-items-center">
+                        <div style="width:60px; height:60px; border-radius:50%; overflow:hidden;" class="me-3 flex-shrink-0 bg-dark text-white d-flex align-items-center justify-content-center">
+                            <i class="bx bx-shield-quarter" style="font-size:1.5rem;"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">Oluşturan: Admin</h6>
+                            <p class="text-sm text-secondary mb-0">Bu rota yönetici tarafından oluşturulmuştur.</p>
+                        </div>
+                    </div>
+                }
+                <div class="mt-4">
+                    <a href="/Member/Destination/Index" class="btn btn-outline-secondary">Geri Dön</a>
+                    <a href="/Member/Reservation/NewReservation" class="btn btn-primary">Rezervasyon Yap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

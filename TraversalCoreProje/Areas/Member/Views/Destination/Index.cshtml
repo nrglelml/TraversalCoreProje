@@ -3,7 +3,6 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
 <div class="row">
     <div class="col-12">
         <div class="card mb-4">
@@ -23,35 +22,31 @@
                             </tr>
                         </thead>
                         <tbody>
-                             @foreach (var item in Model)
+                            @foreach (var item in Model)
                             {
                                 <tr>
                                     <td>
                                         <div class="d-flex px-2 py-1">
-
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="mb-0 text-sm">@item.DestinationCity</h6>
-
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0">@item.DestinationDayNight</p>
-                                        
                                     </td>
                                     <td class="align-middle text-center text-sm">
                                         <span class="badge badge-sm bg-gradient-success">@item.DestinationCapacity</span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">@item.DestinationPrice</span>
+                                        <span class="text-secondary text-xs font-weight-bold">@item.DestinationPrice ₺</span>
                                     </td>
                                     <td class="align-middle">
-                                        <a href="#" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" >
+                                        <a href="/Member/Destination/Details/@item.DestinationID" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip">
                                             Detaya Git
                                         </a>
                                     </td>
                                 </tr>
-                           
                             }
                         </tbody>
                     </table>
@@ -60,4 +55,3 @@
         </div>
     </div>
 </div>
-

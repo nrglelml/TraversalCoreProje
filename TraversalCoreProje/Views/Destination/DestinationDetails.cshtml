@@ -9,14 +9,61 @@
 }
 else
 {
-
     <br />
-   
+    <div class="py-5 w3l-homeblock1 text-center style="margin-top: 100px;">
+        <div class="container mt-md-3">
+            <h3 class="blog-desc-big text-center mb-4">
+                @Model.DestinationCity Turuna Hoş Geldiniz
+            </h3>
+            <div class="blog-post-align">
+                <div class="blog-post-img">
+                    @if (Model.GuideID != null && Model.Guide != null && !string.IsNullOrEmpty(Model.Guide.Image))
+                    {
+                        <img src="~/guideImages/@Model.Guide.Image" alt="@Model.Guide.Name" class="rounded-circle img-fluid" style="width:60px; height:60px; object-fit:cover;" />
+                    }
+                    else if (Model.GuideID != null && Model.Guide != null)
+                    {
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center mx-auto"
+                             style="width:60px; height:60px; font-size:1.2rem;">
+                            @(Model.Guide.Name?.Substring(0, 1).ToUpper())
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center mx-auto"
+                             style="width:60px; height:60px;">
+                            <i class="bx bx-shield-quarter" style="font-size:1.5rem;"></i>
+                        </div>
+                    }
+                </div>
+                <div class="blog-post-info">
+                    <div class="author align-items-center mb-1">
+                        @if (Model.GuideID != null && Model.Guide != null)
+                        {
+                            <span>@Model.Guide.Name</span> <text> rehberliğinde </text> <span>Traversal</span>
+                        }
+                        else
+                        {
+                            <span>Traversal Yönetimi</span> <text> tarafından oluşturuldu</text>
+                        }
+                    </div>
+                    <ul class="blog-meta">
+                        <li class="meta-item blog-lesson">
+                            <span class="meta-value">@Model.DestinationDayNight</span>
+                        </li>
+                        <li class="meta-item blog-students">
+                            <span class="meta-value">@Model.DestinationCapacity Kişilik Grup</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="blog-post-main w3l-homeblock1">
 
         <div class="blog-content-inf pb-5">
             <div class="container pb-lg-4">
-                <h2 class="mb-3">@Model.DestinationCity</h2>
                 <div class="single-post-image">
                     <div class="post-content">
                         @if (!string.IsNullOrEmpty(Model.CoverImage))
@@ -29,7 +76,7 @@ else
                     </div>
                 </div>
                 <div class="single-post-content">
-                   
+
                     @if (!string.IsNullOrEmpty(Model.DestinationDescription))
                     {
                         <p class="alphabet mb-4">
@@ -51,14 +98,17 @@ else
                     {
                         <div class="sing-post-thumb mb-5 row pt-3 justify-content-center">
                             <div class="col-sm-6">
-                                <img src="~/destinationImages/@Model.Image2" class="img-fluid radius-image d-block mx-auto" alt="@Model.DestinationCity">
+                                <img src="~/destinationImages/@Model.Image2"
+                                     class="img-fluid radius-image d-block mx-auto"
+                                     style="width:220px; height:220px; object-fit:cover;"
+                                     alt="@Model.DestinationCity">
                             </div>
                         </div>
                     }
                     <p class="mb-4">
                         @Model.Details2
                     </p>
-             
+
                     <div class="d-grid left-right mt-5 pb-md-5">
                         <div class="buttons-singles">
                             <h6 class="mb-0">@Model.DestinationDayNight</h6>
@@ -69,7 +119,6 @@ else
                     </div>
                     @await Component.InvokeAsync("_CommentList", new { id = ViewBag.i })
                     @await Component.InvokeAsync("_AddComment", new { id = ViewBag.i })
-                  @*   @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml", new Comment(), new ViewDataDictionary(ViewData)) *@
                 </div>
             </div>
         </div>
