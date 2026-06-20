@@ -11,12 +11,12 @@ namespace DTOLayer.DTOs.DestinationDTOs
     {
         public int DestinationID { get; set; }
         public string DestinationCity { get; set; }
-        public string DestinationDayNight { get; set; }
-        public string DestinationDescription { get; set; }
-        public string Details1 { get; set; }
-        public string Details2 { get; set; }
-        public double DestinationPrice { get; set; }
-        public int DestinationCapacity { get; set; }
+        public string? DestinationDayNight { get; set; }
+        public string? DestinationDescription { get; set; }
+        public string? Details1 { get; set; }
+        public string? Details2 { get; set; }
+        public double? DestinationPrice { get; set; }
+        public int? DestinationCapacity { get; set; }
 
         public IFormFile? DestinationImageFile { get; set; }
         public IFormFile? CoverImageFile { get; set; }

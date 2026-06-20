@@ -39,7 +39,7 @@ namespace BusinessLayer.Concrete
 
         public List<About2> TGetListByStatus(bool filter)
         {
-            throw new NotImplementedException();
+            return _about2Dal.GetListByFilter(x => x.About2Status == filter);
         }
 
         public void TUpdate(About2 t)

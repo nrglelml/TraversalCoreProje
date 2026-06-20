@@ -1,10 +1,20 @@
 ﻿@model List<Guide>
-
 @{
     ViewData["Title"] = "Rehberlerimiz";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container py-2">
+            <h2 class="title">Rehberlerimiz</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="/Home/Index">Ana Sayfa</a></li>
+                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Rehberlerimiz </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<br />
 <section class="w3l-team" id="team">
     <div class="team-block py-5">
         <div class="container py-lg-5">
@@ -22,11 +32,17 @@
                                 <a href="#url">
                                     @if (!string.IsNullOrEmpty(item.Image))
                                     {
-                                        <img src="~/guideImages/@item.Image" alt="@item.Name" class="img-fluid" />
+                                        <img src="~/guideImages/@item.Image"
+                                             alt="@item.Name"
+                                             class="img-fluid w-100"
+                                             style="aspect-ratio:1/1; object-fit:cover; object-position:center;" />
                                     }
                                     else
                                     {
-                                        <img src="~/assets/images/team1.jpg" alt="@item.Name" class="img-fluid" />
+                                        <img src="~/assets/images/team1.jpg"
+                                             alt="@item.Name"
+                                             class="img-fluid w-100"
+                                             style="aspect-ratio:1/1; object-fit:cover; object-position:center;" />
                                     }
                                 </a>
                                 <div class="box-content">

@@ -45,7 +45,17 @@ namespace BusinessLayer.Container
             services.AddScoped<INewsletterService, NewsletterManager>();
             services.AddScoped<INewsletterDal, EfNewsletterDal>();
 
-           
+            services.AddScoped<IAboutDal, EfAboutDal>();
+            services.AddScoped<IAboutService, AboutManager>();
+
+            services.AddScoped<IAbout2Dal, EfAbout2Dal>();
+            services.AddScoped<IAbout2Service, About2Manager>();
+
+            services.AddScoped<IContactDal, EfContactDal>();
+            services.AddScoped<IContactService, ContactManager>();
+
+            services.AddScoped<IContactUsDal, EfContactUsDal>();
+            services.AddScoped<IContactUsService, ContactUsManager>();
         }
 
         public static void CustomerValidator(this IServiceCollection services)

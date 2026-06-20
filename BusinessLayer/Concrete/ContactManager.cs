@@ -11,36 +11,40 @@ namespace BusinessLayer.Concrete
 {
     public class ContactManager : IContactService
     {
-        //IContactDal _contactDal;
+        IContactDal _contactDal;
+        public ContactManager(IContactDal contactDal)
+        {
+            _contactDal = contactDal;
+        }
         
         public void TAdd(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Insert(t);
         }
 
         public void TDelete(Contact t)
         {
-            throw new NotImplementedException();
+           _contactDal.Delete(t);
         }
 
         public Contact TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetByID(id);
         }
 
         public List<Contact> TGetList()
         {
-            throw new NotImplementedException();
+            return _contactDal.GetList();
         }
 
         public List<Contact> TGetListByStatus(bool filter)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetListByFilter(x=>x.ContactStatus==filter);
         }
 
         public void TUpdate(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Update(t);
         }
     }
 }

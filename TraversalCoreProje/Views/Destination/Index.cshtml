@@ -3,29 +3,32 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-    <section class="w3l-about-breadcrumb text-left">
-        <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
-            <div class="container">
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container">
             <h2 class="title">Rotalar </h2>
-                <ul class="breadcrumbs-custom-path mt-2">
+            <ul class="breadcrumbs-custom-path mt-2">
                 <li><a href="/Home/Index">Ana Sayfa</a></li>
                 <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Rotalar </li>
-                </ul>
-            </div>
+            </ul>
         </div>
-    </section>
-
-    <section class="grids-1 py-5">
-        <div class="grids py-lg-5 py-md-4">
-            <div class="container">
-                <h3 class="hny-title mb-5">Tur Rotaları</h3>
-                <div class="row">
+    </div>
+</section>
+<section class="grids-1 py-5">
+    <div class="grids py-lg-5 py-md-4">
+        <div class="container">
+            <h3 class="hny-title mb-5">Tur Rotaları</h3>
+            <div class="row">
                 @foreach (var item in Model)
                 {
                     <div class="col-lg-4 col-md-4 col-6">
                         <div class="column">
-                            <a href="/Destination/DestinationDetails/@item.DestinationID"><img src="~/destinationImages/@item.DestinationImage" alt="" class="img-fluid"></a>
+                            <a href="/Destination/DestinationDetails/@item.DestinationID">
+                                <img src="~/destinationImages/@item.DestinationImage"
+                                     alt="@item.DestinationCity"
+                                     class="img-fluid w-100"
+                                     style="aspect-ratio:1/1; object-fit:cover; object-position:center;">
+                            </a>
                             <div class="info">
                                 <h4><a href="/Destination/DestinationDetails/@item.DestinationID">@item.DestinationCity</a></h4>
                                 <p>@item.DestinationDayNight </p>
@@ -37,8 +40,7 @@
                         </div>
                     </div>
                 }
-                   
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>

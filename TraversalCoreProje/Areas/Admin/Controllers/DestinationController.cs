@@ -103,7 +103,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
             destination.DestinationStatus = true;
 
             _destinationService.TUpdate(destination);
-            return RedirectToAction("Details", new { id = destination.DestinationID });
+            return RedirectToAction("Index");
         }
         [HttpPost]
         public IActionResult DeleteDestination(int id)
