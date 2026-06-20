@@ -37,7 +37,7 @@ else
         {
             <tr>
                 <td>@item.CommentID</td>
-                <td>@item.User</td>
+                <td>@item.AppUser.Name @item.AppUser.Surname</td>
                 <td>@item.Destination.DestinationCity</td>
                 <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
                 <td><a href="/Admin/Comment/DeleteComment/@item.CommentID" class="btn btn-outline-danger">Sil</a></td>

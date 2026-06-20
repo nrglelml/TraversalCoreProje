@@ -1,16 +1,31 @@
 ﻿@model List<Comment>
 <div class="comments mt-5">
     <h4 class="side-title">Yorumlar (@(Model?.Count ?? 0))</h4>
-
     @if (Model != null && Model.Any())
     {
         foreach (var item in Model)
         {
-            <div class="media mt-4">
+           
+            <div class="media mt-4 d-flex align-items-start">
+                <div class="me-3 flex-shrink-0" style="width:60px; height:60px; border-radius:50%; overflow:hidden;">
+                    @if (item.AppUser != null && !string.IsNullOrEmpty(item.AppUser.ImageURL))
+                    {
+                        <img src="~/userImages/@item.AppUser.ImageURL"
+                             alt="@item.AppUser.Name"
+                             style="width:100%; height:100%; object-fit:cover; display:block;" />
+                    }
+                    else
+                    {
+                        <div class="bg-primary text-white d-flex align-items-center justify-content-center"
+                             style="width:100%; height:100%; font-size:1.2rem;">
+                            @(item.AppUser?.Name?.Substring(0, 1).ToUpper())
+                        </div>
+                    }
+                </div>
                 <div class="media-body">
                     <ul class="time-rply mb-2">
                         <li>
-                            <span class="name mt-0 mb-2 d-block">@item.User</span>
+                            <span class="name mt-0 mb-2 d-block">@item.AppUser.Name @item.AppUser.Surname</span>
                             @item.Date.ToShortDateString() - @item.Date.ToShortTimeString()
                         </li>
                     </ul>

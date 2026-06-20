@@ -1,0 +1,30 @@
+﻿@* YORUM YAPMA SAYFASI *@
+@model Comment
+<div class="leave-comment-form mt-5" id="reply">
+    <h4 class="side-title mb-2">Yorum Bırakın</h4>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p class="mb-4">
+            <strong>@ViewBag.username</strong> olarak yorum yapıyorsunuz.
+        </p>
+
+        <form method="post" asp-action="AddComment" asp-controller="Comment">
+            <input type="hidden" name="DestinationID" value="@ViewData["i"]" />
+
+            <div class="form-group">
+                <textarea name="Content" class="form-control" placeholder="Yorumunuz*" required="" spellcheck="false"></textarea>
+            </div>
+
+            <div class="submit text-right">
+                <button class="btn btn-style btn-primary">Yorum Yap</button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <p class="mb-4">
+            Yorum yapabilmek için <a href="/Login/SignUp">üye olmalısınız.</a>.
+        </p>
+    }
+</div>

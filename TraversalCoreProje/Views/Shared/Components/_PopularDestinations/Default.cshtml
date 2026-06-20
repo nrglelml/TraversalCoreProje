@@ -7,20 +7,20 @@
             <h3 class="hny-title">Popüler Rotalar</h3>
         </div>
         <div class="row bottom-ab-grids">
-            @foreach(var item in Model)
+            @foreach (var item in Model.Take(4))
             {
                 <div class="col-lg-6 subject-card mt-lg-0 mt-4">
                     <div class="subject-card-header p-4">
-                        <a href="#" class="card_title p-lg-4d-block">
+                        <a href="/Destination/DestinationDetails/@item.DestinationID" class="card_title p-lg-4d-block">
                             <div class="row align-items-center">
                                 <div class="col-sm-5 subject-img">
-                                    <img src="/destinationImages/@item.DestinationImage" class="img-fluid" alt="">
+                                    <img src="~/destinationImages/@item.DestinationImage" class="img-fluid" alt="@item.DestinationCity">
                                 </div>
                                 <div class="col-sm-7 subject-content mt-sm-0 mt-4">
                                     <h4>@item.DestinationCity</h4>
                                     <p>@item.DestinationDayNight</p>
                                     <div class="dst-btm">
-                                        <h6 class=""> Başlayan  fiyatlarla </h6>
+                                        <h6 class=""> Başlayan fiyatlarla </h6>
                                         <span>@item.DestinationPrice ₺</span>
                                     </div>
                                     <p class="sub-para">@item.DestinationDescription</p>
@@ -30,8 +30,13 @@
                     </div>
                 </div>
             }
-            
-            
         </div>
+
+        @if (Model.Count > 4)
+        {
+            <div class="text-center mt-5">
+                <a href="/Destination/Index" class="btn btn-style btn-primary">Tüm Rotaları Gör</a>
+            </div>
+        }
     </div>
 </section>

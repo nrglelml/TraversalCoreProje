@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _commentdal = commentdal;
         }
 
+        public List<Comment> GetListCommentWithDestinationAndUser(int id)
+        {
+           return _commentdal.GetListCommentWithDestinationAndUser(id);
+        }
+
         public void TAdd(Comment t)
         {
             _commentdal.Insert(t);

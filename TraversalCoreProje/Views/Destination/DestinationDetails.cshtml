@@ -68,7 +68,8 @@ else
                         </div>
                     </div>
                     @await Component.InvokeAsync("_CommentList", new { id = ViewBag.i })
-                    @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml", new Comment(), new ViewDataDictionary(ViewData))
+                    @await Component.InvokeAsync("_AddComment", new { id = ViewBag.i })
+                  @*   @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml", new Comment(), new ViewDataDictionary(ViewData)) *@
                 </div>
             </div>
         </div>

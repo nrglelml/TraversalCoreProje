@@ -1,7 +1,9 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProje.Controllers
@@ -9,21 +11,31 @@ namespace TraversalCoreProje.Controllers
     [AllowAnonymous]
     public class CommentController : Controller
     {
-        CommentManager cm = new CommentManager(new EfCommentDal());
-        [HttpGet]
-        public PartialViewResult AddComment(int id)
+        private readonly ICommentService _commentService;
+        private readonly UserManager<AppUser> _userManager;
+        public CommentController(ICommentService commentService, UserManager<AppUser> userManager)
         {
-            ViewBag.i= id;  
-            var values = cm.TGetByID(id);
-            return PartialView(values);
+            _commentService = commentService;
+            _userManager = userManager;
         }
+    
         [HttpPost]
-        public IActionResult AddComment(Comment p)
+        public async Task<IActionResult> AddComment(Comment p)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("SignIn", "Login");
+            }
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            p.AppUserID = user.Id;
             p.Date = DateTime.Now;
             p.State = true;
-            cm.TAdd(p);
-            return RedirectToAction("Index","Destination");
+
+            _commentService.TAdd(p);
+            return RedirectToAction("DestinationDetails", "Destination", new { id = p.DestinationID });
+
         }
     }
 }
