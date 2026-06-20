@@ -42,9 +42,9 @@ namespace BusinessLayer.Concrete
             return _guidedal.GetList();
         }
 
-        public List<Guide> TGetListByFilter(string filter)
+        public List<Guide> TGetListByStatus(bool filter)
         {
-            throw new NotImplementedException();
+            return _guidedal.GetListByFilter(x => x.GuideStatus == filter);
         }
 
         public void TUpdate(Guide t)

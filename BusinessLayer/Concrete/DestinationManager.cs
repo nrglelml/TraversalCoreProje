@@ -36,12 +36,11 @@ namespace BusinessLayer.Concrete
             return _destinationDal.GetList();
         }
 
-        public List<Destination> TGetListByFilter(string filter)
+        public List<Destination> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }
 
-   
         public void TUpdate(Destination t)
         {
             _destinationDal.Update(t);

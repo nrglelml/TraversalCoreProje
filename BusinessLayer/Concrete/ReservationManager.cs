@@ -48,12 +48,12 @@ namespace BusinessLayer.Concrete
             return _reservationdal.GetList();
         }
 
-        public List<Reservation> TGetListByFilter(string filter)
+        public List<Reservation> TGetListByStatus(bool filter)
         {
-            return _reservationdal.GetListByFilter(x => x.Status == filter);
+            throw new NotImplementedException();
+            // return _reservationdal.GetListByFilter(x => x.Status == filter);
         }
 
-       
         public void TUpdate(Reservation t)
         {
             _reservationdal.Update(t);

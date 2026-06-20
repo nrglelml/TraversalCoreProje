@@ -43,7 +43,7 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Comment> TGetListByFilter(string filter)
+        public List<Comment> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }

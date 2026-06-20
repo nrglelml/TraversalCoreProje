@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete
             return _subAboutDal.GetList();
         }
 
-        public List<SubAbout> TGetListByFilter(string filter)
+        public List<SubAbout> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }

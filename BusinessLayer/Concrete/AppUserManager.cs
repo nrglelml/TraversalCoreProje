@@ -36,11 +36,10 @@ namespace BusinessLayer.Concrete
            return  _appuser.GetList();
         }
 
-        public List<AppUser> TGetListByFilter(string filter)
+        public List<AppUser> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }
-
 
         public void TUpdate(AppUser t)
         {

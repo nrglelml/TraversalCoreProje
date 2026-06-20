@@ -33,12 +33,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Contact> TGetListByFilter(string filter)
+        public List<Contact> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }
 
-    
         public void TUpdate(Contact t)
         {
             throw new NotImplementedException();

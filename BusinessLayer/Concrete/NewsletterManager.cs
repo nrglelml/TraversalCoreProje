@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,16 @@ namespace BusinessLayer.Concrete
 {
     public class NewsletterManager : INewsletterService
     {
+
+        INewsletterDal _newsletterDal;
+        public NewsletterManager(INewsletterDal newsletterDal)
+        {
+            _newsletterDal = newsletterDal;
+        }
+
         public void TAdd(Newsletter t)
         {
-            throw new NotImplementedException();
+            _newsletterDal.Insert(t);
         }
 
         public void TDelete(Newsletter t)
@@ -30,12 +38,12 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Newsletter> TGetListByFilter(string filter)
+
+        public List<Newsletter> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }
 
- 
         public void TUpdate(Newsletter t)
         {
             throw new NotImplementedException();

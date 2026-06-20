@@ -37,8 +37,7 @@ namespace BusinessLayer.Concrete
         {
             return _announcementDal.GetList();
         }
-
-        public List<Announcement> TGetListByFilter(string filter)
+        public List<Announcement> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }

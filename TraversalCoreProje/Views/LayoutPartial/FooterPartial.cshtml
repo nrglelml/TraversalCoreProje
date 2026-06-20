@@ -1,4 +1,13 @@
-﻿<footer>
+﻿@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<footer>
     <!-- footer -->
     <section class="w3l-footer">
         <div class="w3l-footer-16-main py-5">
@@ -7,7 +16,7 @@
                     <div class="col-lg-6 column">
                         <div class="row">
                             <div class="col-md-4 column">
-                                <h3>Company</h3>
+                            
                                 <ul class="footer-gd-16">
                                     <li><a href="index.html">Ana Sayfa</a></li>
                                     <li><a href="about.html">Hakkımızda</a></li>
@@ -17,7 +26,7 @@
                                 </ul>
                             </div>
                             <div class="col-md-4 column mt-md-0 mt-4">
-                                <h3>Faydalı Linkler</h3>
+                               
                                 <ul class="footer-gd-16">
                                     <li><a href="#url">Havayolları</a></li>
                                     <li><a href="#url">Hastaneler</a></li>
@@ -27,7 +36,7 @@
                                 </ul>
                             </div>
                             <div class="col-md-4 column mt-md-0 mt-4">
-                                <h3>Hizmetlerimiz</h3>
+                              
                                 <ul class="footer-gd-16">
                                     <li><a href="#url">Servisler</a></li>
                                     <li><a href="#url">Ring Seferler</a></li>
@@ -39,11 +48,11 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 column pl-lg-5 column4 mt-lg-0 mt-5">
-                        <h3>Newsletter </h3>
+                       
                         <div class="end-column">
                             <h4>Son gelişmeler ve kampanyalardan haberdar olun.</h4>
-                            <form action="#" class="subscribe" method="post">
-                                <input type="email" name="email" placeholder="Mail Adresi" required="">
+                            <form asp-controller="Home" asp-action="AddNewsLetter" method="post" class="subscribe">
+                                <input type="email" name="Mail" placeholder="E-posta adresiniz" />
                                 <button type="submit">Abone Ol</button>
                             </form>
                             <p>Kampanyalar için bültene kaydolun.</p>

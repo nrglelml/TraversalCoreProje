@@ -30,7 +30,8 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Feature2> TGetListByFilter(string filter)
+
+        public List<Feature2> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }

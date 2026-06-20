@@ -49,7 +49,7 @@ namespace BusinessLayer.Concrete
             return _contactUsDal.GetList();
         }
 
-        public List<ContactUs> TGetListByFilter(string filter)
+        public List<ContactUs> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }

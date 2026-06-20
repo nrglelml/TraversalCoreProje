@@ -36,7 +36,8 @@ namespace BusinessLayer.Concrete
             return _testimonialDal.GetList();
         }
 
-        public List<Testimonial> TGetListByFilter(string filter)
+
+        public List<Testimonial> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }

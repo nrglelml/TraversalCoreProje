@@ -3,6 +3,7 @@ using DTOLayer.DTOs.AnnouncementDTOs;
 using DTOLayer.DTOs.AppUserDTOs;
 using DTOLayer.DTOs.CityDTOs;
 using DTOLayer.DTOs.ContactDTOs;
+using DTOLayer.DTOs.DestinationDTOs;
 using DTOLayer.DTOs.GuideDTOs;
 using EntityLayer.Concrete;
 
@@ -28,8 +29,16 @@ namespace TraversalCoreProje.Mapping.AutoMapperProfile
             CreateMap<Announcement, AnnouncementUpdateDto>();
 
             CreateMap<SendMessageDto, ContactUs>().ReverseMap();
+
             CreateMap<GuideAddEditDTO, Guide>();
             CreateMap<Guide, GuideAddEditDTO>();
+
+            CreateMap<DestinationAddDTO, Destination>();
+            CreateMap<Destination, DestinationAddDTO>();
+
+            CreateMap<DestinationUpdateDTO,Destination>();
+            CreateMap<Destination, DestinationUpdateDTO>();
+
 
         }
     }

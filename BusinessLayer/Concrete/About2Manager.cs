@@ -37,7 +37,7 @@ namespace BusinessLayer.Concrete
             return _about2Dal.GetList();
         }
 
-        public List<About2> TGetListByFilter(string filter)
+        public List<About2> TGetListByStatus(bool filter)
         {
             throw new NotImplementedException();
         }
