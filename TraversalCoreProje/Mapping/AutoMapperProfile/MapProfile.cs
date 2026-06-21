@@ -36,7 +36,10 @@ namespace TraversalCoreProje.Mapping.AutoMapperProfile
             CreateMap<DestinationAddDTO, Destination>();
             CreateMap<Destination, DestinationAddDTO>();
 
-            CreateMap<DestinationUpdateDTO,Destination>();
+            CreateMap<DestinationUpdateDTO, Destination>()
+                .ForMember(dest => dest.DestinationImage, opt => opt.Ignore())
+                .ForMember(dest => dest.CoverImage, opt => opt.Ignore())
+                .ForMember(dest => dest.Image2, opt => opt.Ignore());
             CreateMap<Destination, DestinationUpdateDTO>();
 
 

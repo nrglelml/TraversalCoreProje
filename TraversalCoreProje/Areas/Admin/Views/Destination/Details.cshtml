@@ -160,21 +160,38 @@
                     </form>
                     <!-- /Account -->
                 </div>
-                <div class="card">
-                    <h5 class="card-header">Geziyi Sil</h5>
-
-                    <form asp-area="Admin" asp-controller="Destination" asp-action="DeleteDestination" method="post">
-                        <input type="hidden" name="id" value="@Model.DestinationID" />    
-                        <div class="form-check mb-3">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="accountActivation"
-                                   id="accountActivation" />
-                            <label class="form-check-label" for="accountActivation">Gezi Turunu Silmek İstediğime Eminim</label>
+                <div class="card border-danger">
+                    <h5 class="card-header  d-flex align-items-center">
+                        <i class="bx bx-trash bx-sm me-2"></i> Geziyi Sil
+                    </h5>
+                    <div class="card-body">
+                        <div class="alert alert-danger d-flex align-items-start" role="alert">
+                            <i class="bx bx-error-circle bx-sm me-2 mt-1"></i>
+                            <div>
+                                <strong>Dikkat!</strong> Bu işlem geri alınamaz. Geziyi sildiğinizde, ilgili tüm rezervasyon ve yorum bağlantıları etkilenebilir.
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-danger deactivate-account">Sil</button>
 
-                    </form>
+                        <form asp-area="Admin" asp-controller="Destination" asp-action="DeleteDestination" method="post" id="deleteDestinationForm">
+                            <input type="hidden" name="id" value="@Model.DestinationID" />
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       name="accountActivation"
+                                       id="accountActivation"
+                                       onchange="document.getElementById('deleteBtn').disabled = !this.checked;" />
+                                <label class="form-check-label" for="accountActivation">
+                                    <strong>"@Model.DestinationCity"</strong> turunu silmek istediğime eminim.
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger" id="deleteBtn" disabled
+                                    onclick="return confirm('Bu işlem geri alınamaz. Devam etmek istediğinize emin misiniz?');">
+                                <i class="bx bx-trash me-1"></i> Geziyi Kalıcı Olarak Sil
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

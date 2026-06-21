@@ -17,7 +17,7 @@ namespace DataAccessLayer.EntityFramework
         {
             using (var context = new Context())
             {
-                return context.Destinations.Include(x => x.Guide).ToList();
+                return context.Destinations.Include(x => x.Guide).Where(x => x.DestinationStatus == true).ToList();
             }
         }
     }
