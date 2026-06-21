@@ -58,7 +58,10 @@ namespace BusinessLayer.Concrete
             return _commentdal.GetListCommentWithDestination();
         }
 
- 
+        public List<Comment> TGetUserCommentsList(int id)
+        {
+            return _commentdal.GetUserCommentsList(id);
+        }
 
         public void TUpdate(Comment t)
         {
