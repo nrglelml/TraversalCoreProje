@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SignalRApi.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SignalRApi.Hubs
@@ -15,9 +13,23 @@ namespace SignalRApi.Hubs
         {
             _visitorService = visitorService;
         }
+
         public async Task GetVisitorList()
         {
-            await Clients.All.SendAsync("CallVisitList", _visitorService.GetVisitorChartList());
+            Console.WriteLine("GetVisitorList çağrıldı!");
+
+            try
+            {
+                var chartList = _visitorService.GetVisitorChartList();
+                Console.WriteLine($"Chart list count: {chartList.Count}");
+                await Clients.All.SendAsync("ReceiveVisitorList", chartList);
+                Console.WriteLine("SendAsync tamamlandı.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("HATA: " + ex.ToString());
+                await Clients.Caller.SendAsync("Error", ex.ToString());
+            }
         }
     }
 }
