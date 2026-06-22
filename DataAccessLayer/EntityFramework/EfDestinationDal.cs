@@ -13,6 +13,15 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfDestinationDal : GenericRepository<Destination>, IDestinationDal
     {
+        public List<Destination> GetLast4Destinations()
+        {
+            using (var context = new Context())
+            {
+                var values = context.Destinations.Where(x => x.DestinationStatus == true).Take(4).OrderByDescending(x => x.DestinationID).ToList();
+                return values;
+            }
+        }
+
         public List<Destination> GetListWithGuide()
         {
             using (var context = new Context())
