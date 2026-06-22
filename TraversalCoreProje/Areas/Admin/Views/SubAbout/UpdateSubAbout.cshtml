@@ -1,0 +1,38 @@
+﻿@model SubAbout
+@{
+    ViewData["Title"] = "UpdateSubAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Alt Hakkında Bilgilerini Düzenle</h5>
+            </div>
+            <div class="card-body">
+                <form asp-area="Admin" asp-controller="SubAbout" asp-action="UpdateSubAbout" method="post">
+
+                    <input type="hidden" asp-for="SubAboutID" />
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold text-uppercase" asp-for="Title">Başlık</label>
+                            <input type="text" class="form-control" asp-for="Title" required />
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label fw-bold text-uppercase" asp-for="Description">Açıklama</label>
+                            <textarea class="form-control" asp-for="Description" rows="6" required></textarea>
+                        </div>
+
+                        <div class="col-12 text-end mt-4">
+                            <a asp-action="Index" class="btn btn-secondary me-2">İptal</a>
+                            <button type="submit" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

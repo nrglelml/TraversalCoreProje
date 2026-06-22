@@ -1,0 +1,46 @@
+﻿@model List<Newsletter>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        
+            <h4 class="mb-0">Abonelikler</h4>
+
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>#</th>
+                            <th>Mail Adresi</th>
+                            <th>İşlemler</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.NewsletterID</td>
+                               
+                                <td>@item.Mail</td>
+
+                                <td>
+                                    <a href="#" class="btn btn-outline-success">Bilgilendirme Maili Gönder</a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    img {
+        border-radius: 50%;
+    }
+</style>
+
+<h1>Traversal Hakkımızda Bilgileri</h1>
+@if (Model == null || !Model.AboutStatus == true)
+{
+    <div class="text-center py-5">
+        <i class="bx bx-info-circle bx-lg text-warning mb-3"></i>
+        <h5>Hakkımızda bilgisi bulunmamaktadır.</h5>
+        <a href="/Admin/About/AddAbout" class="btn btn-primary mt-2">Hemen Oluşturun</a>
+    </div>
+}
+else
+{
+    if (Model.AboutStatus == true)
+    {
+
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Görsel</th>
+                <th>Başlık</th>
+                <th>Açıklama</th>
+                <th>Başlık2</th>
+                <th>Açıklama2</th>
+                <th>İşlemler</th>
+            </tr>
+
+
+            <tr>
+                <td>@Model.AboutID</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(Model.Image))
+                    {
+                        <img src="~/aboutImages/@Model.Image" height="50" width="50" style="object-fit:cover;" />
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center justify-content-center rounded bg-secondary text-white" style="width:50px; height:50px; font-size:10px;">
+                        Resim Yok
+                    </div>
+                    }
+                </td>
+                <td>@Model.Title</td>
+                <td>@Model.Description</td>
+                <td>@Model.Title2</td>
+                <td>@Model.Description2</td>
+
+
+
+                <td><a href="/Admin/About/UpdateAbout/@Model.AboutID" class="btn btn-outline-success">Düzenle</a>
+                    <a href="/Admin/About/DeleteAbout/@Model.AboutID" class="btn btn-outline-danger">Sil</a>
+                </td>
+            </tr>
+
+        </table>
+    }
+}
+

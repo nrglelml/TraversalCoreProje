@@ -56,6 +56,9 @@ namespace BusinessLayer.Container
 
             services.AddScoped<IContactUsDal, EfContactUsDal>();
             services.AddScoped<IContactUsService, ContactUsManager>();
+
+            services.AddScoped<ISubAboutDal, EfSubAboutDal>();
+            services.AddScoped<ISubAboutService, SubAboutManager>();
         }
 
         public static void CustomerValidator(this IServiceCollection services)

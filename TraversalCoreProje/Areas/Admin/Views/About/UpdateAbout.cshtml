@@ -1,0 +1,96 @@
+﻿@model AboutAddEditDTO
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">Hakkımızda Bilgilerini Düzenle</h4>
+
+        <div class="card mb-4">
+            <h5 class="card-header">Rehber Bilgileri</h5>
+
+            <form asp-area="Admin" asp-controller="About" asp-action="UpdateAbout" method="post" enctype="multipart/form-data">
+
+                <input type="hidden" asp-for="AboutID" />
+
+                <div class="card-body">
+                    <div class="d-flex align-items-start align-items-sm-center gap-4">
+                        @if (!string.IsNullOrEmpty(Model.Image))
+                        {
+                            <img src="~/aboutImages/@Model.Image" class="d-block rounded" height="100" width="100" id="uploadedAvatar" style="object-fit:cover;" />
+                        }
+                        else
+                        {
+                            <div class="d-flex align-items-center justify-content-center rounded bg-secondary text-white" id="uploadedAvatar" style="width:100px; height:100px;">
+                                Resim Yok
+                            </div>
+                        }
+                        <div class="button-wrapper">
+                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                <span class="d-none d-sm-block">Fotoğrafı Güncelle</span>
+                                <input type="file" id="upload" name="ImageFile" class="account-file-input" hidden accept="image/png, image/jpeg" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-0" />
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="title" class="form-label">Başlık</label>
+                            <input class="form-control" type="text" id="title" asp-for="Title" />
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="description" class="form-label">Açıklama</label>
+                            <textarea class="form-control" id="description" rows="4" asp-for="Description"></textarea>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="title" class="form-label">Başlık 2</label>
+                            <input class="form-control" type="text" id="title" asp-for="Title2" />
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="description" class="form-label">Açıklama 2</label>
+                            <textarea class="form-control" id="description" rows="4" asp-for="Description2"></textarea>
+                        </div>
+               
+
+                       
+                    </div>
+
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                        <a asp-area="Admin" asp-controller="About" asp-action="Index" class="btn btn-outline-secondary">İptal</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    document.getElementById('upload').addEventListener('change', function (e) {
+        var file = e.target.files[0];
+        if (file) {
+            var img = document.getElementById('uploadedAvatar');
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                if (img.tagName === 'IMG') {
+                    img.src = event.target.result;
+                } else {
+                    img.outerHTML = '<img src="' + event.target.result + '" class="rounded" width="100" height="100" id="uploadedAvatar" style="object-fit:cover;" />';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>

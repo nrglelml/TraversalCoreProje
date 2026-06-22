@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using DTOLayer.DTOs.About2DTOs;
+using DTOLayer.DTOs.AboutDTOs;
 using DTOLayer.DTOs.AnnouncementDTOs;
 using DTOLayer.DTOs.AppUserDTOs;
 using DTOLayer.DTOs.CityDTOs;
@@ -41,6 +43,13 @@ namespace TraversalCoreProje.Mapping.AutoMapperProfile
                 .ForMember(dest => dest.CoverImage, opt => opt.Ignore())
                 .ForMember(dest => dest.Image2, opt => opt.Ignore());
             CreateMap<Destination, DestinationUpdateDTO>();
+
+            CreateMap<About2AddEditDTO, About2>();
+            CreateMap<About2, About2AddEditDTO>();
+
+
+            CreateMap<AboutAddEditDTO, About>();
+            CreateMap<About, AboutAddEditDTO>();
 
 
         }

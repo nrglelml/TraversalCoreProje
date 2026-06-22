@@ -1,0 +1,50 @@
+﻿@model SubAbout
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    img {
+        border-radius: 50%;
+    }
+</style>
+
+<h1>Traversal Alt Hakkında (AnaSayfa) Bilgileri</h1>
+@if (Model == null || !Model.Status == true)
+{
+    <div class="text-center py-5">
+        <i class="bx bx-info-circle bx-lg text-warning mb-3"></i>
+        <h5>Hakkımızda bilgisi bulunmamaktadır.</h5>
+        <a href="/Admin/SubAbout/AddSubAbout" class="btn btn-primary mt-2">Hemen Oluşturun</a>
+    </div>
+}
+else
+{
+    if (Model.Status == true)
+    {
+
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Başlık</th>
+                <th>Açıklama</th>
+                <th>İşlemler</th>
+            </tr>
+
+
+            <tr>
+                <td>@Model.SubAboutID</td>
+               
+                <td>@Model.Title</td>
+                <td>@Model.Description</td>
+         <td>
+                    <a href="/Admin/SubAbout/UpdateSubAbout/@Model.SubAboutID" class="btn btn-outline-success">Düzenle</a>
+                    <a href="/Admin/SubAbout/DeleteSubAbout/@Model.SubAboutID" class="btn btn-outline-danger">Sil</a>
+                </td>
+            </tr>
+
+        </table>
+    }
+}
+

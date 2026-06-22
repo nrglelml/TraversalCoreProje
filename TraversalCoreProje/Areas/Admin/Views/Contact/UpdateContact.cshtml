@@ -13,7 +13,6 @@
             <div class="card-body">
                 <form asp-area="Admin" asp-controller="Contact" asp-action="UpdateContact" method="post">
 
-                    @* Güncellenecek kaydın ID'sini arka plana gizliyoruz *@
                     <input type="hidden" asp-for="ContactID" />
                     <input type="hidden" asp-for="ContactStatus" />
 

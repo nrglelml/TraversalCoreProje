@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<Newsletter> TGetList()
         {
-            throw new NotImplementedException();
+            return _newsletterDal.GetList();
         }
 
 
