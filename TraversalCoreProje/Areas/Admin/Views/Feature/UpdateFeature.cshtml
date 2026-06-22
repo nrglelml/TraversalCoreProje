@@ -1,0 +1,48 @@
+﻿@model DTOLayer.DTOs.FeatureDTOs.FeatureAddEditDTO
+@{
+    ViewData["Title"] = "Özellik Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Öne Çıkan Bilgilerini Düzenle</h5>
+            </div>
+            <div class="card-body">
+                <form asp-action="UpdateFeature" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="FeatureID" />
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" asp-for="Title">Başlık</label>
+                            <input type="text" class="form-control" asp-for="Title" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" asp-for="Description">Açıklama / Fiyat</label>
+                            <input type="text" class="form-control" asp-for="Description" required />
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label fw-bold" asp-for="ImageFile">Yeni Görsel Seç (Değiştirmek istemiyorsanız boş bırakın)</label>
+                            <input type="file" class="form-control" asp-for="ImageFile" accept="image/*" />
+                        </div>
+
+                        <div class="col-md-12 mt-4">
+                            <div class="form-check form-switch fs-5">
+                                <input class="form-check-input" type="checkbox" asp-for="IsBigImage" id="isBigImageSwitch">
+                                <label class="form-check-label fw-bold text-primary" for="isBigImageSwitch">Bu görseli "Ana Büyük Görsel" yap</label>
+                            </div>
+                            <small class="text-muted d-block mt-1">Not: Aktif ederseniz, şu anki büyük görsel sistem tarafından pasife çekilir.</small>
+                        </div>
+
+                        <div class="col-12 text-end mt-4">
+                            <a asp-action="Index" class="btn btn-secondary me-2">İptal</a>
+                            <button type="submit" class="btn btn-warning">Değişiklikleri Uygula</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

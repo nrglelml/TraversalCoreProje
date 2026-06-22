@@ -447,6 +447,7 @@
     <Folder Include="wwwroot\destinationImages\" />
     <Folder Include="wwwroot\guideImages\" />
     <Folder Include="wwwroot\aboutImages\" />
+    <Folder Include="wwwroot\featureImages\" />
     <Folder Include="wwwroot\userImages\" />
     <Folder Include="wwwroot\soft-ui-dashboard\.git\objects\info\" />
     <Folder Include="wwwroot\soft-ui-dashboard\.git\objects\pack\" />

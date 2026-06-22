@@ -59,6 +59,9 @@ namespace BusinessLayer.Container
 
             services.AddScoped<ISubAboutDal, EfSubAboutDal>();
             services.AddScoped<ISubAboutService, SubAboutManager>();
+
+            services.AddScoped<IFeatureDal, EfFeatureDal>();
+            services.AddScoped<IFeatureService, FeatureManager>();
         }
 
         public static void CustomerValidator(this IServiceCollection services)

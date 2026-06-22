@@ -1,0 +1,57 @@
+﻿@model List<EntityLayer.Concrete.Feature>
+@{
+    ViewData["Title"] = "Öne Çıkanlar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Öne Çıkanlar Listesi</h5>
+                <a asp-action="AddFeature" asp-controller="Feature" asp-area="Admin" class="btn btn-primary btn-sm">Yeni Özellik Ekle</a>
+            </div>
+            <div class="table-responsive text-nowrap">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Görsel</th>
+                            <th>Başlık</th>
+                            <th>Açıklama (Fiyat)</th>
+                            <th>Büyük Görsel Mi?</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><strong>@item.FeatureID</strong></td>
+                                <td>
+                                    <img src="/featureImages/@item.Image" class="rounded" style="width:60px; height:40px; object-fit:cover;" />
+                                </td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>
+                                    @if (item.IsBigImage)
+                                    {
+                                        <span class="badge bg-label-success me-1">Evet (Ana Görsel)</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-label-secondary me-1">Hayır</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-action="UpdateFeature" asp-route-id="@item.FeatureID" class="btn btn-outline-warning btn-sm me-1">Düzenle</a>
+                                    <a asp-action="DeleteFeature" asp-route-id="@item.FeatureID" class="btn btn-outline-danger btn-sm" onclick="return confirm('Bu özelliği silmek istediğinize emin misiniz?')">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

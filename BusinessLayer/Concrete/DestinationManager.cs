@@ -44,7 +44,7 @@ namespace BusinessLayer.Concrete
 
         public List<Destination> TGetListByStatus(bool filter)
         {
-            throw new NotImplementedException();
+           return _destinationDal.GetListByFilter(x=>x.DestinationStatus == filter);
         }
 
         public List<Destination> TGetListWithGuide()

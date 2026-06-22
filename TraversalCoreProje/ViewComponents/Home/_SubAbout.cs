@@ -9,7 +9,7 @@ namespace TraversalCoreProje.ViewComponents.Home
         SubAboutManager sm = new SubAboutManager(new EfSubAboutDal());
         public IViewComponentResult Invoke()
         {
-            var values = sm.TGetList().FirstOrDefault();
+            var values = sm.TGetListByStatus(true).FirstOrDefault();
             return View(values);
         }
     }

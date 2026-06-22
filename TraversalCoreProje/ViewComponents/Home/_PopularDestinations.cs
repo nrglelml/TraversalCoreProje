@@ -9,7 +9,7 @@ namespace TraversalCoreProje.ViewComponents.Home
         DestinationManager dm = new DestinationManager(new EfDestinationDal());
         public IViewComponentResult Invoke()
         {
-            var values=dm.TGetList();
+            var values=dm.TGetListByStatus(true);
             return View(values);
         }
     }

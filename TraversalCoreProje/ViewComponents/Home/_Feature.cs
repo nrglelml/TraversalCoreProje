@@ -10,7 +10,7 @@ namespace TraversalCoreProje.ViewComponents.Home
         FeatureManager fm=new FeatureManager(new EfFeatureDal());
         public IViewComponentResult Invoke()
         {
-            var values=fm.TGetList();
+            var values=fm.TGetListByStatus(true);
             return View(values);
         }
     }

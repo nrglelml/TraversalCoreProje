@@ -18,17 +18,17 @@ namespace BusinessLayer.Concrete
         }
         public void TAdd(Feature t)
         {
-            throw new NotImplementedException();
+            _featureDal.Insert(t);
         }
 
         public void TDelete(Feature t)
         {
-            throw new NotImplementedException();
+            _featureDal.Delete(t);
         }
 
         public Feature TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _featureDal.GetByID(id);
         }
 
         public List<Feature> TGetList()
@@ -38,12 +38,12 @@ namespace BusinessLayer.Concrete
 
         public List<Feature> TGetListByStatus(bool filter)
         {
-            throw new NotImplementedException();
+            return _featureDal.GetListByFilter(x=>x.FeatureStatus==filter);
         }
 
         public void TUpdate(Feature t)
         {
-            throw new NotImplementedException();
+            _featureDal.Update(t);
         }
     }
 }

@@ -6,6 +6,7 @@ using DTOLayer.DTOs.AppUserDTOs;
 using DTOLayer.DTOs.CityDTOs;
 using DTOLayer.DTOs.ContactDTOs;
 using DTOLayer.DTOs.DestinationDTOs;
+using DTOLayer.DTOs.FeatureDTOs;
 using DTOLayer.DTOs.GuideDTOs;
 using EntityLayer.Concrete;
 
@@ -50,6 +51,9 @@ namespace TraversalCoreProje.Mapping.AutoMapperProfile
 
             CreateMap<AboutAddEditDTO, About>();
             CreateMap<About, AboutAddEditDTO>();
+
+            CreateMap<FeatureAddEditDTO,Feature>();
+            CreateMap<Feature, FeatureAddEditDTO>();
 
 
         }
