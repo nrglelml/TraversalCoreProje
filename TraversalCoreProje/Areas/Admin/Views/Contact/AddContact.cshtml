@@ -1,0 +1,60 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">İletişim Bilgisi Ekle</h4>
+
+        <div class="card mb-4">
+           
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <form asp-area="Admin" asp-controller="Contact" asp-action="AddContact" method="post" enctype="multipart/form-data">
+
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="mail" class="form-label">Mail Adresi</label>
+                            <input class="form-control" type="text" id="mail" asp-for="Mail" required="" />
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="description" class="form-label">Açıklama</label>
+                            <textarea class="form-control" type="text" id="description" rows="3" asp-for="Description" required="" ></textarea>
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="address" class="form-label">Adres</label>
+                            <textarea class="form-control" type="text" id="address" rows="3" asp-for="Address" ></textarea>
+
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="phone" class="form-label">Telefon</label>
+                            <input class="form-control" id="phone"  asp-for="Phone" />
+                        </div>
+
+                       <div class="mb-3 col-md-6">
+                            <label for="maplocation" class="form-label">Harita Konumu (Google Maps embed iframe URL'i (sadece src değeri))</label>
+                            <input class="form-control" id="maplocation"  asp-for="MapLocation" />
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                        <a asp-area="Admin" asp-controller="Contact" asp-action="Index" class="btn btn-outline-secondary">İptal</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
