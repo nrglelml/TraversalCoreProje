@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class AnnouncementController : Controller
+
+    public class AnnouncementController : BaseAdminController
     {
         private readonly IAnnouncementService _announcementService;
         private readonly IMapper _mapper;

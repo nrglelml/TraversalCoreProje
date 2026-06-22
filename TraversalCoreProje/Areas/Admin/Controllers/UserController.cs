@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class UserController : Controller
+    public class UserController : BaseAdminController
     {
         private readonly IAppUserService _appUserService;
         private readonly IReservationService _reservationService;

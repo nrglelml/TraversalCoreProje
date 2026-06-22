@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
-    [AllowAnonymous]
+
     [Area("Admin")]
-    public class SubAboutController : Controller
+    public class SubAboutController : BaseAdminController
     {
         private readonly ISubAboutService _subAboutService;
         public SubAboutController (ISubAboutService subAboutService)

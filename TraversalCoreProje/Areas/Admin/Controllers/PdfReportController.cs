@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class PdfReportController : Controller
+
+    public class PdfReportController : BaseAdminController
     {
         public IActionResult StaticPdfReport()
         {

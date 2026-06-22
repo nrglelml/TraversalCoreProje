@@ -8,9 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
-    [AllowAnonymous]
     [Area("Admin")]
-    public class FeatureController : Controller
+    public class FeatureController : BaseAdminController
     {
         private readonly IFeatureService _featureService;
         private readonly IMapper _mapper;

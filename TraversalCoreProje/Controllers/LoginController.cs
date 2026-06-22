@@ -57,16 +57,27 @@ namespace TraversalCoreProje.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(UserSignInViewModel p)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var result=await _signInManager.PasswordSignInAsync(p.Username, p.Password,false,true);
+                var result = await _signInManager.PasswordSignInAsync(p.Username, p.Password, false, true);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Dashboard", new { area = "Member" });
+                    var user = await _userManager.FindByNameAsync(p.Username);
+                    var roles = await _userManager.GetRolesAsync(user);
+
+                    if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Dashboard", new { area = "Member" });
+                    }
                 }
                 else
                 {
-                    return RedirectToAction("SignIn", "Login");
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı.");
+                    return View(p);
                 }
             }
             return View();

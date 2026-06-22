@@ -8,8 +8,8 @@ using MimeKit;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class MailController : Controller
+
+    public class MailController : BaseAdminController
     {
         [HttpGet]
         public IActionResult Index()

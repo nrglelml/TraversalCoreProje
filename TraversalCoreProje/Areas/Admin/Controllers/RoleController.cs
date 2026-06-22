@@ -7,9 +7,9 @@ using TraversalCoreProje.Areas.Admin.Models;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+
     [Route("Admin/Role")]
-    public class RoleController : Controller
+    public class RoleController : BaseAdminController
     {
         private readonly RoleManager<AppRole> _roleManager;
         private readonly UserManager<AppUser> _userManager;

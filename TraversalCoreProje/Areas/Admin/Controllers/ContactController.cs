@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
-    [AllowAnonymous]
+    
     [Area("Admin")]
-    public class ContactController : Controller
+    public class ContactController : BaseAdminController
     {
         private readonly IContactService _contactService;
         public ContactController (IContactService contactService)

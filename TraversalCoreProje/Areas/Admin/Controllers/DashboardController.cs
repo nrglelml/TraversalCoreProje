@@ -7,8 +7,8 @@ using TraversalCoreProje.Areas.Member.Models;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class DashboardController : Controller
+    
+    public class DashboardController : BaseAdminController
     {
        
         public async Task<IActionResult> Index()

@@ -7,8 +7,8 @@ using TraversalCoreProje.Areas.Admin.Models;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class VisitorApiController : Controller
+
+    public class VisitorApiController : BaseAdminController
     {
         private readonly IHttpClientFactory _httpClientFactory;
         public VisitorApiController(IHttpClientFactory httpClientFactory)

@@ -10,8 +10,8 @@ using TraversalCoreProje.Areas.Admin.Models;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class ExcelController : Controller
+
+    public class ExcelController : BaseAdminController
     {
         private readonly IExcelService _excelservice;
         public ExcelController(IExcelService excelService)

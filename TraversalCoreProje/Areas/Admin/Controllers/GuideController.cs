@@ -13,8 +13,7 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
 
-    [AllowAnonymous]
-    public class GuideController : Controller
+    public class GuideController : BaseAdminController
     {
         private readonly IGuideService _guideService;
         private readonly IMapper _mapper;

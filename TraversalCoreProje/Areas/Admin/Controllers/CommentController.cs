@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class CommentController : Controller
+
+    public class CommentController : BaseAdminController 
     {
         
         private readonly ICommentService _commentService;

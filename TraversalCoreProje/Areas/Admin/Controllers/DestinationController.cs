@@ -13,8 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class DestinationController : Controller
+
+    public class DestinationController : BaseAdminController
     {
         private readonly IDestinationService _destinationService;
         private readonly IMapper _mapper;

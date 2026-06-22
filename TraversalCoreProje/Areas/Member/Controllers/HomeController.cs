@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProje.Areas.Member.Controllers
 {
     [Area("Member")]
-
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()

@@ -7,8 +7,8 @@ using Newtonsoft.Json;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class CityController : Controller
+
+    public class CityController :BaseAdminController
     {
         private readonly IDestinationService _destinationService;
 

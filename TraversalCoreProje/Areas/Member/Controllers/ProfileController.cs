@@ -7,6 +7,7 @@ using TraversalCoreProje.Areas.Member.Models;
 namespace TraversalCoreProje.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _usermanager;

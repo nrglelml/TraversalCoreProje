@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TraversalCoreProje.Areas.Member.Models;
@@ -6,6 +7,7 @@ using TraversalCoreProje.Areas.Member.Models;
 namespace TraversalCoreProje.Areas.Member.Controllers
 {
     [Area("Member")]
+    [Authorize]
     public class DashboardController : Controller
     {
         private readonly UserManager<AppUser> _usermanager;

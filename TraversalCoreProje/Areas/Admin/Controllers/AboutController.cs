@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
-    [AllowAnonymous]
+
     [Area("Admin")]
-    public class AboutController : Controller
+    public class AboutController : BaseAdminController
     {
         private readonly IAboutService _aboutService;
         private readonly IMapper _mapper;

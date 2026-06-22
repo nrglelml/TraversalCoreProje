@@ -6,8 +6,8 @@ using TraversalCoreProje.Areas.Admin.Models;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
-    public class BookingHotelSearchController : Controller
+
+    public class BookingHotelSearchController : BaseAdminController
     {
         private readonly string apiKey = "f6e6f3b192mshd8d9c354404e70fp1f402ejsn3a919764ef3b";
         private readonly string apiHost = "booking-com15.p.rapidapi.com";

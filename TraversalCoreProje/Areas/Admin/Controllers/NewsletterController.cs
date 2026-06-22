@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
-    [AllowAnonymous]
+
     [Area("Admin")]
-    public class NewsletterController : Controller
+    public class NewsletterController : BaseAdminController
     {
         private readonly INewsletterService _newsletterService;
         public NewsletterController(INewsletterService newsletterService)
