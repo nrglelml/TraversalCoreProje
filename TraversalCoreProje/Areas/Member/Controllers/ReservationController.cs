@@ -39,6 +39,12 @@ namespace TraversalCoreProje.Areas.Member.Controllers
             var values = _reservationService.GetListWithReservationByStatus(user.Id, "onay bekliyor");
             return View(values);
         }
+        public async Task<IActionResult> MyRejectedReservation()
+        {
+            var user = await _usermanager.FindByNameAsync(User.Identity.Name);
+            var values = _reservationService.GetListWithReservationByStatus(user.Id, "reddedildi");
+            return View(values);
+        }
         [HttpGet]
         public async Task<IActionResult> NewReservation()
         {

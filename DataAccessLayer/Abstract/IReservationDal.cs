@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract
    public interface IReservationDal:IGenericDal<Reservation>
     {
         List<Reservation> GetListWithReservationByStatus(int id,string status);
+        List<Reservation> GetListWithDestination();
     }
 }

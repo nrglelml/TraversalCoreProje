@@ -1,0 +1,149 @@
+﻿@model List<Reservation>
+@{
+    ViewData["Title"] = "Rezervasyon Yönetimi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+        <h4 class="mb-4">Rezervasyon Yönetimi</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <div class="card border-warning">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <i class="bx bx-time-five bx-lg text-warning"></i>
+                        <div>
+                            <h6 class="mb-0">Onay Bekleyen</h6>
+                            <h4 class="mb-0">@Model.Count(x => x.Status == "onay bekliyor")</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-success">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <i class="bx bx-check-circle bx-lg text-success"></i>
+                        <div>
+                            <h6 class="mb-0">Onaylanan</h6>
+                            <h4 class="mb-0">@Model.Count(x => x.Status == "onaylandı")</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-danger">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <i class="bx bx-x-circle bx-lg text-danger"></i>
+                        <div>
+                            <h6 class="mb-0">Reddedilen</h6>
+                            <h4 class="mb-0">@Model.Count(x => x.Status == "reddedildi")</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-secondary">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <i class="bx bx-history bx-lg text-secondary"></i>
+                        <div>
+                            <h6 class="mb-0">Geçmiş</h6>
+                            <h4 class="mb-0">@Model.Count(x => x.Status == "geçmiş rezervasyon")</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kullanıcı</th>
+                            <th>Rota</th>
+                            <th>Kişi Sayısı</th>
+                            <th>Tarih</th>
+                            <th>Açıklama</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model == null || !Model.Any())
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center py-4">Henüz rezervasyon bulunmamaktadır.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            int count = 0;
+                            foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.AppUser?.Name @item.AppUser?.Surname</td>
+                                    <td>@item.Destination?.DestinationCity</td>
+                                    <td>@item.PersonCount Kişi</td>
+                                    <td>@item.ReservationDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        @if (item.Status == "onaylandı")
+                                        {
+                                            <span class="badge bg-label-success">Onaylandı</span>
+                                        }
+                                        else if (item.Status == "reddedildi")
+                                        {
+                                            <span class="badge bg-label-danger">Reddedildi</span>
+                                        }
+                                        else if (item.Status == "geçmiş rezervasyon")
+                                        {
+                                            <span class="badge bg-label-secondary">Geçmiş</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-label-warning">Onay Bekliyor</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-1 flex-wrap">
+                                            @if (item.Status != "onaylandı")
+                                            {
+                                                <a href="/Admin/Reservation/Approve/@item.ReservationID"
+                                                   class="btn btn-outline-success btn-sm"
+                                                   onclick="return confirm('Bu rezervasyonu onaylamak istediğinize emin misiniz?');">
+                                                    <i class="bx bx-check"></i> Onayla
+                                                </a>
+                                            }
+                                            @if (item.Status != "reddedildi")
+                                            {
+                                                <a href="/Admin/Reservation/Reject/@item.ReservationID"
+                                                   class="btn btn-outline-danger btn-sm"
+                                                   onclick="return confirm('Bu rezervasyonu reddetmek istediğinize emin misiniz?');">
+                                                    <i class="bx bx-x"></i> Reddet
+                                                </a>
+                                            }
+                                            @if (item.Status != "geçmiş rezervasyon")
+                                            {
+                                                <a href="/Admin/Reservation/SetPast/@item.ReservationID"
+                                                   class="btn btn-outline-secondary btn-sm"
+                                                   onclick="return confirm('Bu rezervasyonu geçmiş olarak işaretlemek istediğinize emin misiniz?');">
+                                                    <i class="bx bx-history"></i> Geçmiş
+                                                </a>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

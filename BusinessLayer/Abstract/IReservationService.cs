@@ -12,7 +12,9 @@ namespace BusinessLayer.Abstract
     public interface IReservationService:IGenericService<Reservation>
     {
         List<Reservation> GetListWithReservationByStatus(int id,string status);
-  
+        public List<Reservation> TGetListWithDestination();
+
+
 
     }
 }

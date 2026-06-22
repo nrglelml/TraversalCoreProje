@@ -54,6 +54,11 @@ namespace BusinessLayer.Concrete
             // return _reservationdal.GetListByFilter(x => x.Status == filter);
         }
 
+        public List<Reservation> TGetListWithDestination()
+        {
+            return _reservationdal.GetListWithDestination();
+        }
+
         public void TUpdate(Reservation t)
         {
             _reservationdal.Update(t);
